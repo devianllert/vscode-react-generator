@@ -4,6 +4,9 @@ import React, { ReactNode, ReactElement } from 'react';
 import * as S from './styled';
 
 interface Props {
+  /**
+   * The content
+   */
   children: ReactNode;
 }
 
