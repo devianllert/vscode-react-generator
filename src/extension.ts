@@ -6,7 +6,7 @@ import { generateComponent } from './generateComponent';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	const generator = vscode.commands.registerCommand('react-generator.reactGenerator', generateComponent);
+	const generator = vscode.commands.registerCommand('react-generator.generator', generateComponent);
 
 	context.subscriptions.push(generator);
 }

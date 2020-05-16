@@ -49,33 +49,35 @@ export const generateComponent = (file: vscode.Uri) => {
         return;
       }
 
+      const componentName = name.charAt(0).toUpperCase() + name.slice(1);
+
       const dir = findDir(file.fsPath);
 
-      const targetPath = path.join(dir, name);
+      const targetPath = path.join(dir, componentName);
 
       makeFileSync(
         `${targetPath}/index.ts`,
-        indexFile.replace(/{component}/g, name)
+        indexFile.replace(/{component}/g, componentName)
       );
 
       makeFileSync(
-        `${targetPath}/${name}.tsx`,
-        componentFile.replace(/{component}/g, name)
+        `${targetPath}/${componentName}.tsx`,
+        componentFile.replace(/{component}/g, componentName)
       );
 
       makeFileSync(
         `${targetPath}/styled.ts`,
-        styledFile.replace(/{component}/g, name)
+        styledFile.replace(/{component}/g, componentName)
       );
 
       makeFileSync(
-        `${targetPath}/stories/${name}.stories.tsx`,
-        storiesFile.replace(/{component}/g, name)
+        `${targetPath}/stories/${componentName}.stories.tsx`,
+        storiesFile.replace(/{component}/g, componentName)
       );
 
       makeFileSync(
-        `${targetPath}/tests/${name}.test.tsx`,
-        testFile.replace(/{component}/g, name)
+        `${targetPath}/tests/${componentName}.test.tsx`,
+        testFile.replace(/{component}/g, componentName)
       );
     });
 };
