@@ -1,34 +1,54 @@
 {
 	"name": "react-generator",
 	"displayName": "React Generator",
-	"description": "",
+	"description": "A small extension that help you to create component's boilerplate",
 	"version": "0.0.1",
+	"publisher": "devianllert",
+	"author": {
+		"name": "Ruslan Povolockii",
+		"email": "devianllert@gmail.com",
+		"url": "https://github.com/devianllert"
+	},
+	"icon": "public/react.png",
+	"bugs": {
+		"url": "https://github.com/devianllert/vscode-react-generator/issues",
+		"email": "devianllert@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/devianllert/vscode-react-generator"
+	},
+	"homepage": "https://github.com/devianllert/vscode-react-generator",
 	"engines": {
 		"vscode": "^1.45.0"
 	},
+	"keywords": [
+		"react generator",
+		"create files",
+		"create folders"
+	],
 	"categories": [
 		"Other"
 	],
+	"galleryBanner": {
+		"color": "#563A8E",
+		"theme": "dark"
+	},
 	"activationEvents": [
-		"onCommand:react-generator.helloWorld",
-		"onCommand:react-generator.reactGenerator"
+		"onCommand:react-generator.generator"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "react-generator.helloWorld",
-				"title": "Hello World"
-			},
-			{
-				"command": "react-generator.reactGenerator",
+				"command": "react-generator.generator",
 				"title": "React Generator"
 			}
 		],
 		"menus": {
 			"explorer/context": [
 				{
-					"command": "react-generator.reactGenerator"
+					"command": "react-generator.generator"
 				}
 			]
 		}
