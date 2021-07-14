@@ -1,12 +1,13 @@
 export const storiesFile = `
-import React, { ReactElement } from 'react';
+import * as React from 'react';
+import { Story, Meta } from '@storybook/react';
 
-import {component} from '../{component}';
+import { {component}, {component}Props } from '../{component}';
 
 export default {
   title: 'Components/{component}',
   component: {component},
-};
+} as Meta;
 
-export const Basic = (): ReactElement => <{component}>Basic</{component}>;
+const Template: Story<{component}Props> = (args) => <{component} {...args} />;
 `;

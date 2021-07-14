@@ -57,27 +57,27 @@ export const generateComponent = (file: vscode.Uri) => {
 
       makeFileSync(
         `${targetPath}/index.ts`,
-        indexFile.replace(/{component}/g, componentName)
+        indexFile.replace(/{component}/g, componentName).trim(),
       );
 
       makeFileSync(
         `${targetPath}/${componentName}.tsx`,
-        componentFile.replace(/{component}/g, componentName)
+        componentFile.replace(/{component}/g, componentName).trim(),
       );
 
       makeFileSync(
         `${targetPath}/styled.ts`,
-        styledFile.replace(/{component}/g, componentName)
+        styledFile.replace(/{component}/g, componentName).trim(),
       );
 
       makeFileSync(
         `${targetPath}/stories/${componentName}.stories.tsx`,
-        storiesFile.replace(/{component}/g, componentName)
+        storiesFile.replace(/{component}/g, componentName).trim(),
       );
 
       makeFileSync(
         `${targetPath}/tests/${componentName}.test.tsx`,
-        testFile.replace(/{component}/g, componentName)
+        testFile.replace(/{component}/g, componentName).trim(),
       );
     });
 };

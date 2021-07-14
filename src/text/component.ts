@@ -1,16 +1,16 @@
 export const componentFile = `
-import React, { ReactNode, ReactElement } from 'react';
+import * React from 'react';
 
 import * as S from './styled';
 
-interface Props {
+export interface {component}Props {
   /**
    * The content
    */
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-const {component} = (props: Props): ReactElement => {
+export const {component} = (props: {component}Props): JSX.Element => {
   const {
     children,
   } = props;
@@ -19,6 +19,4 @@ const {component} = (props: Props): ReactElement => {
     <S.Comp>{children}</S.Comp>
   );
 };
-
-export default {component};
 `;
