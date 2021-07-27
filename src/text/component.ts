@@ -1,5 +1,5 @@
 export const componentFile = `
-import * React from 'react';
+import * as React from 'react';
 
 import * as S from './styled';
 
@@ -16,7 +16,7 @@ export const {component} = (props: {component}Props): JSX.Element => {
   } = props;
 
   return (
-    <S.Comp>{children}</S.Comp>
+    <S.{component}Root>{children}</S.{component}Root>
   );
 };
 `;

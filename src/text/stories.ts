@@ -10,4 +10,10 @@ export default {
 } as Meta;
 
 const Template: Story<{component}Props> = (args) => <{component} {...args} />;
+
+export const Basic = Template.bind({});
+
+Basic.args = {
+  children: '{component}',
+};
 `;

@@ -28,11 +28,11 @@ export const makeDirSync = (dir: string) => {
   fs.mkdirSync(dir);
 };
 
-export const makeFileSync = (filename: string, content: any) => {
+export const createFile = async (filename: string, content: any) => {
   if (!fs.existsSync(filename)) {
     makeDirSync(path.dirname(filename));
 
-    fs.createWriteStream(filename).write(content);
+    await fs.promises.writeFile(filename, content);
   }
 };
 
@@ -55,29 +55,37 @@ export const generateComponent = (file: vscode.Uri) => {
 
       const targetPath = path.join(dir, componentName);
 
-      makeFileSync(
+      const index = createFile(
         `${targetPath}/index.ts`,
         indexFile.replace(/{component}/g, componentName).trim(),
       );
 
-      makeFileSync(
+      const component = createFile(
         `${targetPath}/${componentName}.tsx`,
         componentFile.replace(/{component}/g, componentName).trim(),
       );
 
-      makeFileSync(
+      const styled = createFile(
         `${targetPath}/styled.ts`,
         styledFile.replace(/{component}/g, componentName).trim(),
       );
 
-      makeFileSync(
+      const stories = createFile(
         `${targetPath}/stories/${componentName}.stories.tsx`,
         storiesFile.replace(/{component}/g, componentName).trim(),
       );
 
-      makeFileSync(
+      const test = createFile(
         `${targetPath}/tests/${componentName}.test.tsx`,
         testFile.replace(/{component}/g, componentName).trim(),
       );
+
+      Promise.all([index, component, styled, stories, test])
+        .then(() => {
+          vscode.window.showInformationMessage("Files created successfully");
+        })
+        .catch(() => {
+          vscode.window.showErrorMessage("Error creating a file");
+        });
     });
 };
