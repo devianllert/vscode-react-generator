@@ -2,7 +2,7 @@
 	"name": "react-generator",
 	"displayName": "React Generator",
 	"description": "A small extension that help you to create component's boilerplate",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"publisher": "devianllert",
 	"author": {
 		"name": "Ruslan Povolockii",
