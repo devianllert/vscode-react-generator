@@ -1,11 +1,10 @@
-export const storiesFile = `
-import * as React from 'react';
+export const storiesTemplate = `import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { {component}, {component}Props } from '../{component}';
+import { {component}, {component}Props } from '../{fileComponent}';
 
 export default {
-  title: 'Components/{component}',
+  title: '{component}',
   component: {component},
 } as Meta;
 

@@ -1,8 +1,8 @@
 {
-	"name": "react-generator",
-	"displayName": "React Generator",
+  "name": "react-generate",
+	"displayName": "React boilerplate generator",
 	"description": "A small extension that help you to create component's boilerplate",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"publisher": "devianllert",
 	"author": {
 		"name": "Ruslan Povolockii",
@@ -20,7 +20,7 @@
 	},
 	"homepage": "https://github.com/devianllert/vscode-react-generator",
 	"engines": {
-		"vscode": "^1.45.0"
+		"vscode": "^1.69.0"
 	},
 	"keywords": [
 		"react generator",
@@ -34,44 +34,50 @@
 		"color": "#563A8E",
 		"theme": "dark"
 	},
-	"activationEvents": [
-		"onCommand:react-generator.generator"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "react-generator.generator",
-				"title": "React Generator"
-			}
-		],
-		"menus": {
-			"explorer/context": [
-				{
-					"command": "react-generator.generator"
-				}
-			]
-		}
-	},
-	"scripts": {
-		"vscode:prepublish": "yarn compile",
-		"compile": "tsc -p ./",
-		"lint": "eslint src --ext ts",
-		"watch": "tsc -watch -p ./",
-		"pretest": "yarn compile && yarn lint",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/glob": "^7.1.1",
-		"@types/mocha": "^9.0.0",
-		"@types/node": "^16.4.3",
-		"@types/vscode": "^1.45.0",
-		"@typescript-eslint/eslint-plugin": "^4.28.5",
-		"@typescript-eslint/parser": "^4.28.5",
-		"eslint": "^7.31.0",
-		"glob": "^7.1.6",
-		"mocha": "^9.0.3",
-		"typescript": "^4.3.5",
-		"vscode-test": "^1.3.0"
-	}
+  "activationEvents": [
+    "onCommand:react-generate.creator"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "react-generate.creator",
+        "title": "Create React Component"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "react-generate.creator"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir dist",
+    "watch-tests": "tsc -p . -w --outDir dist",
+    "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./dist/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.69.0",
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "eslint": "^8.20.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4",
+    "ts-loader": "^9.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "@vscode/test-electron": "^2.1.5"
+  }
 }

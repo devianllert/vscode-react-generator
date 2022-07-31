@@ -1,7 +1,6 @@
-export const componentFile = `
-import * as React from 'react';
+export const componentTemplate = `import * as React from 'react';
 
-import * as S from './styled';
+import * as S from './{fileComponent}.styled';
 
 export interface {component}Props {
   /**
@@ -14,7 +13,6 @@ export const {component} = (props: {component}Props): JSX.Element => {
   const {
     children,
   } = props;
-
   return (
     <S.{component}Root>{children}</S.{component}Root>
   );
