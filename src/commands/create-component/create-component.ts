@@ -19,8 +19,6 @@ export const createComponent = async (file: vscode.Uri) => {
     valueSelection: [-1, -1],
   });
 
-  console.log(inputName);
-
   if (!inputName?.trim()) {return;}
 
   const fileName = toKebab(inputName);

@@ -13,6 +13,7 @@ export const {component} = (props: {component}Props): JSX.Element => {
   const {
     children,
   } = props;
+
   return (
     <S.{component}Root>{children}</S.{component}Root>
   );

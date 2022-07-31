@@ -1,8 +1,8 @@
 {
-  "name": "react-generate",
+  "name": "react-generator",
 	"displayName": "React boilerplate generator",
 	"description": "A small extension that help you to create component's boilerplate",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"publisher": "devianllert",
 	"author": {
 		"name": "Ruslan Povolockii",
@@ -35,20 +35,20 @@
 		"theme": "dark"
 	},
   "activationEvents": [
-    "onCommand:react-generate.creator"
+    "onCommand:react-generator.creator"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "react-generate.creator",
+        "command": "react-generator.creator",
         "title": "Create React Component"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "react-generate.creator"
+          "command": "react-generator.creator"
         }
       ]
     }
